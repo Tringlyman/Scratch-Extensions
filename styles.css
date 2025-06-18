@@ -1,10 +1,40 @@
-.btn {
-    background-color: #fbff00; /* Green */
-    border: none;
-    color: rgb(0, 0, 0);
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+:root{
+    /* Button properties: */
+    --widith: 70px;
+    --height: 70px;
+    --btnPadding: 15px 80px;
+    --btnBackground-color: #333333;
+    --btnBorder: black;
+    --btnColor: rgb(255, 255, 255);
+    --btnText-align: center;
+    --btnText-decoration: none;
+    --btnDisplay: inline-block;
+    --btnFont-size: 16px;
+    cursor: grab;
+}
+:root:active{
+    cursor: grabbing;
+}
+
+
+hr.rounded{
+    border: 8px solid #333; 
+    border-radius: 500px; 
+}
+.grid{
+
+    grid-template-columns: auto auto auto;
+    display: grid;
+    gap: 30px 15px;
+}
+
+.Btn {
+    padding: var(--btnPadding);
+    background-color: var(--btnBackground-color);
+    border: var(--btnBackground-color);
+    color: var(--btnColor);
+    text-align: var(--btnText-align);
+    text-decoration: var(--btnText-decoration);
+    display: var(--btnDisplay);
+    font-size: var(--btnFont-size);
 }
