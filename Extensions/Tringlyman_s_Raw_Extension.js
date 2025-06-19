@@ -145,10 +145,10 @@
     class Extension {
         getInfo() {
             return {
-                "blockIconURI": "data:image/png;base64,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",
+                "blockIconURI": "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSI2OS42NTA2NiIgaGVpZ2h0PSI2OS42NTA2NiIgdmlld0JveD0iMCwwLDY5LjY1MDY2LDY5LjY1MDY2Ij48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjA1LjE3NDY3LC0xNDUuMTc0NjcpIj48ZyBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiPjxwYXRoIGQ9Ik0yMDcuNjc0NjcsMTgwYzAsLTE3Ljg1Mjc5IDE0LjQ3MjU0LC0zMi4zMjUzMyAzMi4zMjUzMywtMzIuMzI1MzNjMTcuODUyNzksMCAzMi4zMjUzMywxNC40NzI1NCAzMi4zMjUzMywzMi4zMjUzM2MwLDE3Ljg1Mjc5IC0xNC40NzI1NCwzMi4zMjUzMyAtMzIuMzI1MzMsMzIuMzI1MzNjLTE3Ljg1Mjc5LDAgLTMyLjMyNTMzLC0xNC40NzI1NCAtMzIuMzI1MzMsLTMyLjMyNTMzeiIgZmlsbD0iIzQwNDA0MCIgc3Ryb2tlPSIjMzMzMzMzIiBzdHJva2Utd2lkdGg9IjUiLz48dGV4dCB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMjcuNDk1MDgsMjAyLjU1MjE4KSBzY2FsZSgwLjcwNzk0LDAuOTI1MjcpIiBmb250LXNpemU9IjQwIiB4bWw6c3BhY2U9InByZXNlcnZlIiBmaWxsPSIjMjYyNjI2IiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZm9udC1mYW1pbHk9IlNhbnMgU2VyaWYiIGZvbnQtd2VpZ2h0PSJub3JtYWwiIHRleHQtYW5jaG9yPSJzdGFydCI+PHRzcGFuIHg9IjAiIGR5PSIwIj4mbHQ7ICZndDs8L3RzcGFuPjwvdGV4dD48L2c+PC9nPjwvc3ZnPjwhLS1yb3RhdGlvbkNlbnRlcjozNC44MjUzMzAwMDAwMDAwMTozNC44MjUzMzAwMDAwMDAwMS0tPg==",
                 "id": "RawExtension",
                 "name": "Tringlyman's Raw Extension",
-                "docsURI": "https://sites.google.com/view/tringlys-scratch-extesions/gallery/documents/tringlymans-raw-extension",
+                "docsURI": "https://sites.google.com/view/tringlys-scratch-extesions/Home/documents/tringlymans-raw-extension",
                 "color1": "#3c3c3c",
                 "color2": "#282828",
                 "blocks": blocks,
@@ -189,29 +189,6 @@
     blocks.push({
         opcode: `rawType3`,
         blockType: Scratch.BlockType.REPORTER,
-        text: `raw join[value1][value2][value3]`,
-        arguments: {
-            "value1": {
-                type: Scratch.ArgumentType.STRING,
-                defaultValue: "\"apple\"",
-            },
-            "value2": {
-                type: Scratch.ArgumentType.STRING,
-                defaultValue: "\"banana\"",
-            },
-            "value3": {
-                type: Scratch.ArgumentType.STRING,
-                defaultValue: "\"pear\"",
-            },
-        }
-    });
-    Extension.prototype[`rawType3`] = async (args, util) => {
-        return args["value1"] + " + " + args["value2"] + " + " + args["value3"]
-    };
-
-    blocks.push({
-        opcode: `rawType4`,
-        blockType: Scratch.BlockType.REPORTER,
         text: `cover[text] in [string style]`,
         arguments: {
             "text": {
@@ -224,7 +201,7 @@
             },
         }
     });
-    Extension.prototype[`rawType4`] = async (args, util) => {
+    Extension.prototype[`rawType3`] = async (args, util) => {
         if (Boolean((args["string style"] == "string(\")"))) {
             return ("\"" + (args["text"] + "\""))
 
@@ -240,40 +217,86 @@
     }
 
     blocks.push({
-        opcode: `id`,
-        blockType: Scratch.BlockType.REPORTER,
-        text: `return raw [text] to [convert]`,
+        opcode: `rawType4`,
+        blockType: Scratch.BlockType.BOOLEAN,
+        text: `is[code]?`,
         arguments: {
-            "text": {
+            "code": {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: "\"Hello World!\"",
-            },
-            "convert": {
-                type: Scratch.ArgumentType.STRING,
-                menu: 'String/Number/Boolean'
+                defaultValue: "1 == 1",
             },
         }
     });
-    Extension.prototype[`id`] = async (args, util) => {
-        if (Boolean((args["convert"] == "String"))) {
-            return String(args["text"])
+    Extension.prototype[`rawType4`] = async (args, util) => {
+        if (Boolean((eval(args["code"]) == true))) {
+            return true
 
         } else {
-            if (Boolean((args["convert"] == "Number"))) {
-                return Number(args["text"])
+            if (Boolean((eval(args["code"]) == false))) {
+                return false
 
             } else {
-                return Boolean(args["text"])
+                throw "This isn't a boolean";
 
             };
 
         };
     };
 
-    menus["String/Number/Boolean"] = {
-        acceptReporters: false,
-        items: [...[...[...[], "String"], "Number"], "Boolean"]
-    }
+    blocks.push({
+        opcode: `rawType5`,
+        blockType: Scratch.BlockType.COMMAND,
+        text: `create function [name]() with code [code]`,
+        arguments: {
+            "name": {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "Hello",
+            },
+            "code": {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "alert(\"Hello World!\")",
+            },
+        }
+    });
+    Extension.prototype[`rawType5`] = async (args, util) => {
+        variables[args["name"]] = args["code"]
+    };
+
+    blocks.push({
+        opcode: `rawType6`,
+        blockType: Scratch.BlockType.REPORTER,
+        text: `run Function [name]()`,
+        arguments: {
+            "name": {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "Hello",
+            },
+        }
+    });
+    Extension.prototype[`rawType6`] = async (args, util) => {
+        if (Boolean(((variables[args["name"]] === undefined) == true))) {
+            throw "There isn't such function!";
+
+        } else {
+            return eval(variables[args["name"]])
+
+        };
+    };
+
+    blocks.push({
+        opcode: `rawType7`,
+        blockType: Scratch.BlockType.COMMAND,
+        text: `delete function [name]()`,
+        arguments: {
+            "name": {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "Hello",
+            },
+        }
+    });
+    Extension.prototype[`rawType7`] = async (args, util) => {
+        variables[args["name"]] = undefined
+    };
 
     Scratch.extensions.register(new Extension());
 })(Scratch);
