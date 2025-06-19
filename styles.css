@@ -1,15 +1,4 @@
 :root{
-    /* Button properties: */
-    --widith: 70px;
-    --height: 70px;
-    --btnPadding: 15px 80px;
-    --btnBackground-color: #333333;
-    --btnBorder: black;
-    --btnColor: rgb(255, 255, 255);
-    --btnText-align: center;
-    --btnText-decoration: none;
-    --btnDisplay: inline-block;
-    --btnFont-size: 16px;
     cursor: grab;
 }
 :root:active{
@@ -29,12 +18,14 @@ hr.rounded{
 }
 
 .Btn {
-    padding: var(--btnPadding);
-    background-color: var(--btnBackground-color);
-    border: var(--btnBackground-color);
-    color: var(--btnColor);
-    text-align: var(--btnText-align);
-    text-decoration: var(--btnText-decoration);
-    display: var(--btnDisplay);
-    font-size: var(--btnFont-size);
+    padding: 10px 5px;
+    background-color: #333333;
+    border: 3px solid #444444;
+    border-radius: 15px;
+    color: white;
+    text-align: middle;
+    text-decoration: solid;
+    display: block;
+    font-size: 15px;
+    cursor: pointer;
 }
