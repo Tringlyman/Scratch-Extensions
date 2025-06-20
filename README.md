@@ -8,7 +8,7 @@ The Purpose of the Website is similar to [TurboWarp Extension Gallery](https://e
 but for my own Scratch Extensions!
 
 >[!TIP]
->You can issue or make a `bugs` Discussion or DM Me in [discord](https://discord.com/users/1133050566726127687),
+>You can issue or make a ["🐛Bugs" Discussion](https://github.com/Tringlyman/Scratch-Extensions/discussions/categories/bugs) or DM Me in [discord](https://discord.com/users/1133050566726127687),
 >
 >also go to my [TurboWarp & Scratch Discord Server Post](https://discord.com/channels/837024174865776680/1377757929788145775)
 >
