@@ -3,7 +3,7 @@
 > Old (reviewable but discontinued) Site:\
 >[Tringly's Scratch Extensions](https://sites.google.com/view/tringlys-scratch-extensions/Home)
 
-Scratch Extensions is a Website by [@Tringlyman](https://github.com/Tringlyman).\
+Scratch Extensions is a Website by @Tringlyman.\
 The Purpose of the Website is similar to [TurboWarp Extension Gallery](https://extensions.turbowarp.org/) / [PenguinMod Extra Extensions](https://extensions.penguinmod.com/),\
 but for my own Scratch Extensions!
 
