@@ -4,7 +4,7 @@ function CopyClipboard(text) {
 
 function Docs(text) {
      if (`${text}` != null || `${text}` != undefined || ``${text} != ``){
-         const Window = window.open(`${text}`, "_blank")
+         const Window = window.open(`https://github.com/Tringlyman/Scratch-Extensions/blob/main/Docs/${text}.md`, "_blank")
      }
      else{
         alert("This Extension doesn't have a Document yet!")
