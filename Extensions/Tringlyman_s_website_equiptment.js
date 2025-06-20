@@ -1,0 +1,211 @@
+/*
+   ~This was made with ⚡ElectraMod - Electrabuilder!~
+   https://electrabuilder.vercel.app/
+*/
+(async function(Scratch) {
+    const variables = {};
+    const blocks = [];
+    const menus = {};
+
+
+    if (!Scratch.extensions.unsandboxed) {
+        alert("This extension needs to be unsandboxed to run!")
+        return
+    }
+
+    function doSound(ab, cd, runtime) {
+        const audioEngine = runtime.audioEngine;
+
+        const fetchAsArrayBufferWithTimeout = (url) =>
+            new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                let timeout = setTimeout(() => {
+                    xhr.abort();
+                    reject(new Error("Timed out"));
+                }, 5000);
+                xhr.onload = () => {
+                    clearTimeout(timeout);
+                    if (xhr.status === 200) {
+                        resolve(xhr.response);
+                    } else {
+                        reject(new Error(`HTTP error ${xhr.status} while fetching ${url}`));
+                    }
+                };
+                xhr.onerror = () => {
+                    clearTimeout(timeout);
+                    reject(new Error(`Failed to request ${url}`));
+                };
+                xhr.responseType = "arraybuffer";
+                xhr.open("GET", url);
+                xhr.send();
+            });
+
+        const soundPlayerCache = new Map();
+
+        const decodeSoundPlayer = async (url) => {
+            const cached = soundPlayerCache.get(url);
+            if (cached) {
+                if (cached.sound) {
+                    return cached.sound;
+                }
+                throw cached.error;
+            }
+
+            try {
+                const arrayBuffer = await fetchAsArrayBufferWithTimeout(url);
+                const soundPlayer = await audioEngine.decodeSoundPlayer({
+                    data: {
+                        buffer: arrayBuffer,
+                    },
+                });
+                soundPlayerCache.set(url, {
+                    sound: soundPlayer,
+                    error: null,
+                });
+                return soundPlayer;
+            } catch (e) {
+                soundPlayerCache.set(url, {
+                    sound: null,
+                    error: e,
+                });
+                throw e;
+            }
+        };
+
+        const playWithAudioEngine = async (url, target) => {
+            const soundBank = target.sprite.soundBank;
+
+            let soundPlayer;
+            try {
+                const originalSoundPlayer = await decodeSoundPlayer(url);
+                soundPlayer = originalSoundPlayer.take();
+            } catch (e) {
+                console.warn(
+                    "Could not fetch audio; falling back to primitive approach",
+                    e
+                );
+                return false;
+            }
+
+            soundBank.addSoundPlayer(soundPlayer);
+            await soundBank.playSound(target, soundPlayer.id);
+
+            delete soundBank.soundPlayers[soundPlayer.id];
+            soundBank.playerTargets.delete(soundPlayer.id);
+            soundBank.soundEffects.delete(soundPlayer.id);
+
+            return true;
+        };
+
+        const playWithAudioElement = (url, target) =>
+            new Promise((resolve, reject) => {
+                const mediaElement = new Audio(url);
+
+                mediaElement.volume = target.volume / 100;
+
+                mediaElement.onended = () => {
+                    resolve();
+                };
+                mediaElement
+                    .play()
+                    .then(() => {
+                        // Wait for onended
+                    })
+                    .catch((err) => {
+                        reject(err);
+                    });
+            });
+
+        const playSound = async (url, target) => {
+            try {
+                if (!(await Scratch.canFetch(url))) {
+                    throw new Error(`Permission to fetch ${url} denied`);
+                }
+
+                const success = await playWithAudioEngine(url, target);
+                if (!success) {
+                    return await playWithAudioElement(url, target);
+                }
+            } catch (e) {
+                console.warn(`All attempts to play ${url} failed`, e);
+            }
+        };
+
+        playSound(ab, cd)
+    }
+
+    const supportsRenderedTargetExport = Scratch.vm.exports && Scratch.vm.exports.RenderedTarget;
+
+    function isSpriteInternal(v) {
+        if (supportsRenderedTargetExport) {
+            return v instanceof Scratch.vm.exports.RenderedTarget;
+        }
+        return v != undefined && typeof v === "object";
+    }
+    class Extension {
+        getInfo() {
+            return {
+                "blockIconURI": "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSI2OS42NTA2NiIgaGVpZ2h0PSI2OS42NTA2NiIgdmlld0JveD0iMCwwLDY5LjY1MDY2LDY5LjY1MDY2Ij48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjA1LjE3NDY3LC0xNDUuMTc0NjcpIj48ZyBmaWxsPSIjMDA2NmZmIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiPjxwYXRoIGQ9Ik0yMDcuNjc0NjcsMTgwYzAsLTE3Ljg1Mjc5IDE0LjQ3MjU0LC0zMi4zMjUzMyAzMi4zMjUzMywtMzIuMzI1MzNjMTcuODUyNzksMCAzMi4zMjUzMywxNC40NzI1NCAzMi4zMjUzMywzMi4zMjUzM2MwLDE3Ljg1Mjc5IC0xNC40NzI1NCwzMi4zMjUzMyAtMzIuMzI1MzMsMzIuMzI1MzNjLTE3Ljg1Mjc5LDAgLTMyLjMyNTMzLC0xNC40NzI1NCAtMzIuMzI1MzMsLTMyLjMyNTMzeiIgc3Ryb2tlPSIjMDA0N2IzIiBzdHJva2Utd2lkdGg9IjUiLz48dGV4dCB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMTQuNjE0ODgsMTkzLjkwNTMzKSBzY2FsZSgwLjk2NTA4LDAuOTY1MDgpIiBmb250LXNpemU9IjQwIiB4bWw6c3BhY2U9InByZXNlcnZlIiBmaWxsPSIjMDA2NmZmIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZm9udC1mYW1pbHk9IlNhbnMgU2VyaWYiIGZvbnQtd2VpZ2h0PSJub3JtYWwiIHRleHQtYW5jaG9yPSJzdGFydCI+PHRzcGFuIHg9IjAiIGR5PSIwIj7wn4yQPC90c3Bhbj48L3RleHQ+PC9nPjwvZz48L3N2Zz48IS0tcm90YXRpb25DZW50ZXI6MzQuODI1MzI4MjgyODI4Mjg6MzQuODI1MzI4MjgyODI4MzY2LS0+",
+                "id": "TringlymansWebsiteEquiptment",
+                "name": "Tringlyman's website equiptment",
+                "docsURI": "https://github.com/Tringlyman/Scratch-Extensions/blob/main/Docs/Tringlyman_s_website_equiptment.js.md",
+                "color1": "#0196c8",
+                "color2": "#0079ad",
+                "blocks": blocks,
+                "menus": menus
+            }
+        }
+    }
+    blocks.push({
+        opcode: `websitetype1`,
+        blockType: Scratch.BlockType.REPORTER,
+        text: `current site`,
+        arguments: {}
+    });
+    Extension.prototype[`websitetype1`] = async (args, util) => {
+        return window.location.hostname
+    };
+
+    blocks.push({
+        opcode: `websitetype2`,
+        blockType: Scratch.BlockType.BOOLEAN,
+        text: `is current site[site?]`,
+        arguments: {
+            "site?": {
+                type: Scratch.ArgumentType.STRING,
+                menu: 'site options'
+            },
+        }
+    });
+    Extension.prototype[`websitetype2`] = async (args, util) => {
+        if (Boolean(((window.location.hostname == (args["site?"] + ".org")) || ((window.location.hostname == (args["site?"] + ".com")) || (window.location.hostname == ("studio." + (args["site?"] + ".com"))))))) {
+            return true
+
+        } else {
+            return false
+
+        };
+    };
+
+    menus["site options"] = {
+        acceptReporters: true,
+        items: [...[...[], "turbowarp"], "penguinmod"]
+    }
+
+    blocks.push({
+        opcode: `websitetype3`,
+        blockType: Scratch.BlockType.COMMAND,
+        text: `open [url+]`,
+        arguments: {
+            "url+": {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "www.example.com",
+            },
+        }
+    });
+    Extension.prototype[`websitetype3`] = async (args, util) => {
+        Scratch.openWindow('https://' + args["url+"]);
+    };
+
+    Scratch.extensions.register(new Extension());
+})(Scratch);
