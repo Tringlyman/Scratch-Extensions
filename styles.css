@@ -1,0 +1,31 @@
+:root{
+    cursor: grab;
+}
+:root:active{
+    cursor: grabbing;
+}
+
+
+hr.rounded{
+    border: 8px solid #333; 
+    border-radius: 500px; 
+}
+.grid{
+
+    grid-template-columns: auto auto auto;
+    display: grid;
+    gap: 30px 15px;
+}
+
+.Btn {
+    padding: 10px 5px;
+    background-color: #333333;
+    border: 3px solid #444444;
+    border-radius: 15px;
+    color: white;
+    text-align: middle;
+    text-decoration: solid;
+    display: block;
+    font-size: 15px;
+    cursor: pointer;
+}
