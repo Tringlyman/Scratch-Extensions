@@ -1,4 +1,7 @@
 :root{
+      -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
     cursor: grab;
 }
 :root:active{
@@ -28,4 +31,33 @@ hr.rounded{
     display: block;
     font-size: 15px;
     cursor: pointer;
+}
+
+.badge-New {
+    border: 5px solid darkred;
+    background-color: red;
+    color: maroon;
+    padding: 4px 8px;
+    text-align: center;
+    border-radius: 10px;
+}
+.badge-Update {
+    border: 5px solid gold;
+    background-color: yellow;
+    color: goldenrod;
+    padding: 4px 8px;
+    text-align: center;
+    border-radius: 10px;
+}
+.badge-None {
+    background-color: transparent;
+    color: transparent;
+}
+.badge-Featured {
+    border: 5px solid goldenrod;
+    background-color: gold;
+    color: darkgoldenrod;
+    padding: 4px 8px;
+    text-align: center;
+    border-radius: 10px;
 }
