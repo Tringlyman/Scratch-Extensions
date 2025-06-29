@@ -245,57 +245,70 @@
 
     blocks.push({
         opcode: `rawType5`,
-        blockType: Scratch.BlockType.COMMAND,
-        text: `create function [name]() with code [code]`,
+        blockType: Scratch.BlockType.REPORTER,
+        text: `raw join [value1]+[value2]`,
         arguments: {
-            "name": {
+            "value1": {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: "Hello",
+                defaultValue: "apple ",
             },
-            "code": {
+            "value2": {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: "alert(\"Hello World!\")",
+                defaultValue: "banana",
             },
         }
     });
     Extension.prototype[`rawType5`] = async (args, util) => {
-        variables[args["name"]] = args["code"]
+        return (args["value1"] + (" + " + args["value2"]))
     };
 
     blocks.push({
         opcode: `rawType6`,
         blockType: Scratch.BlockType.REPORTER,
-        text: `run Function [name]()`,
+        text: `raw [value1][and/or][value2]`,
         arguments: {
-            "name": {
+            "value1": {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: "Hello",
+                defaultValue: "1 === 1",
+            },
+            "and/or": {
+                type: Scratch.ArgumentType.STRING,
+                menu: 'and/or'
+            },
+            "value2": {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "\"1\" === 1",
             },
         }
     });
     Extension.prototype[`rawType6`] = async (args, util) => {
-        if (Boolean(((variables[args["name"]] === undefined) == true))) {
-            throw "There isn't such function!";
+        if (Boolean((args["and/or"] == "and"))) {
+            return (args["value1"] + (" && " + args["value2"]))
 
         } else {
-            return eval(variables[args["name"]])
+            return (args["value1"] + (" || " + args["value2"]))
 
         };
     };
 
+    menus["and/or"] = {
+        acceptReporters: false,
+        items: [...[...[], "and"], "or"]
+    }
+
     blocks.push({
         opcode: `rawType7`,
-        blockType: Scratch.BlockType.COMMAND,
-        text: `delete function [name]()`,
+        blockType: Scratch.BlockType.REPORTER,
+        text: `raw not [value]`,
         arguments: {
-            "name": {
+            "value": {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: "Hello",
+                defaultValue: "1 == 1",
             },
         }
     });
     Extension.prototype[`rawType7`] = async (args, util) => {
-        variables[args["name"]] = undefined
+        return ("!(" + (args["value"] + ")"))
     };
 
     Scratch.extensions.register(new Extension());
