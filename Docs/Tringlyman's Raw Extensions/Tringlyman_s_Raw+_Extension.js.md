@@ -2,7 +2,7 @@
 
 
 Welcome to Raw+ Extension,\
-This Extension contains extra [Content for Raw Extension](https://github.com/Tringlyman/Scratch-Extensions/blob/170d8896d88016dbfab91d6a0f67ded04c0a3bf0/Docs/Tringlyman's%20Raw%20Extensions/TringlymTringlyan_s_Raw_Extension.js.md)!
+This Extension contains extra Content for [Raw Extension](https://github.com/Tringlyman/Scratch-Extensions/blob/170d8896d88016dbfab91d6a0f67ded04c0a3bf0/Docs/Tringlyman's%20Raw%20Extensions/TringlymTringlyan_s_Raw_Extension.js.md)!
 
 ---
 >[!NOTE]
