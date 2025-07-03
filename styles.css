@@ -54,7 +54,7 @@ hr.rounded{
 /* Buttons, Images, Badges */
 
 .Btn {
-    display:inline-flex;
+    display:inline-block;
     padding-top: 15px;
     padding-right: 70px;
     padding-bottom: 15px;
