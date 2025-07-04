@@ -13,11 +13,12 @@ but for my own Scratch Extensions!
 >also go to my [TurboWarp & Scratch Discord Server Post](https://discord.com/channels/837024174865776680/1377757929788145775)
 >
 >or in my Scratch **Extensions Discord Server** *<sub>`Currently Unvavaible`</sub>*
-# Badges Explained
 
 Documentation repo:\
 https://github.com/Tringlyman/docs.Scratch-Extensions
-<br><br>
+# Badges Explained
+
+
 
 |Name|Description|
 |----|-----------|
