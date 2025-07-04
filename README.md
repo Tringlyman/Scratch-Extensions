@@ -15,6 +15,10 @@ but for my own Scratch Extensions!
 >or in my Scratch **Extensions Discord Server** *<sub>`Currently Unvavaible`</sub>*
 # Badges Explained
 
+Documentation repo:\
+https://github.com/Tringlyman/docs.Scratch-Extensions
+<br><br>
+
 |Name|Description|
 |----|-----------|
 |Featured|Main Extensions|
