@@ -3,5 +3,5 @@ function CopyClipboard(text) {
 }
 
 function Docs(text) {
-     const Window = window.open(`https://github.com/Tringlyman/Scratch-Extensions/blob/main/Docs/${text}.md/`)
+     const Window = window.open(`https://github.com/Tringlyman/docs.Scratch-Extensions/blob/main/Docs/${text}.md/`)
 }
