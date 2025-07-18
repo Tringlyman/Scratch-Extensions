@@ -1,7 +1,9 @@
 function CopyClipboard(text) {
-    navigator.clipboard.writeText(`https://raw.githubusercontent.com/Tringlyman/Scratch-Extensions/refs/heads/main/Extensions/${text}`)
+    const rawuser = `https://raw.githubusercontent.com/Tringlyman/Scratch-Extensions/refs/heads/main/Extensions$/${text}`
+    navigator.clipboard.writeText(rawuser)
 }
 
 function Docs(text) {
-     const Window = window.open(`https://github.com/Tringlyman/docs.Scratch-Extensions/blob/main/Docs/${text}.md/`)
+    const doc = `https://github.com/Tringlyman/docs.Scratch-Extensions/blob/main/Docs/${text}.md/`
+    window.open(doc)
 }
