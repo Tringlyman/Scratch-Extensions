@@ -1,5 +1,5 @@
 function CopyClipboard(text) {
-    const rawuser = `https://raw.githubusercontent.com/Tringlyman/Scratch-Extensions/refs/heads/main/Extensions$/${text}`
+    const rawuser = `https://raw.githubusercontent.com/Tringlyman/Scratch-Extensions/refs/heads/main/Extensions/${text}`
     navigator.clipboard.writeText(rawuser)
 }
 
