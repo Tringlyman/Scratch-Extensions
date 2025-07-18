@@ -31,7 +31,7 @@
         disableMonitor: true
     });
     Extension.prototype[`saveChangelog`] = async (args, util) => {
-        window.open("https://github.com/Tringlyman/docs.Scratch-Extensions/tree/main/changelog/save.1.md");
+        window.open("https://github.com/Tringlyman/docs.Scratch-Extensions/tree/main/changelog/Save/save.0.md");
     };
 
     await (async () => {

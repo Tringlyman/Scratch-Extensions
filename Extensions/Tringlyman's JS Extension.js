@@ -31,7 +31,7 @@
         disableMonitor: true
     });
     Extension.prototype[`JSChangelog`] = async (args, util) => {
-        window.open("https://github.com/Tringlyman/docs.Scratch-Extensions/tree/main/changelog/JS.1.md");
+        window.open("https://github.com/Tringlyman/docs.Scratch-Extensions/tree/main/changelog/JS/JS.0.md");
     };
     
     localStorage.setItem("text1", "")

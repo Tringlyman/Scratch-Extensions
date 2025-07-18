@@ -31,7 +31,7 @@
         disableMonitor: true
     });
     Extension.prototype[`websiteChangelog`] = async (args, util) => {
-        window.open("https://github.com/Tringlyman/docs.Scratch-Extensions/tree/main/changelog/website.1.md");
+        window.open("https://github.com/Tringlyman/docs.Scratch-Extensions/tree/main/changelog/Website/website.0.md");
     };
 
     blocks.push({

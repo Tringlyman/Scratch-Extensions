@@ -31,7 +31,7 @@
         disableMonitor: true
     });
     Extension.prototype[`rawPlusChangelog`] = async (args, util) => {
-        window.open("https://github.com/Tringlyman/docs.Scratch-Extensions/tree/main/changelog/rawPlus.1.md");
+        window.open("https://github.com/Tringlyman/docs.Scratch-Extensions/tree/main/changelog/Raws/Raw+/rawPlus.0.md");
     };
 
     blocks.push({

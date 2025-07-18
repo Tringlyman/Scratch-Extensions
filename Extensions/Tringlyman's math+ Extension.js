@@ -31,7 +31,7 @@
         disableMonitor: true
     });
     Extension.prototype[`mathChangelog`] = async (args, util) => {
-        window.open("https://github.com/Tringlyman/docs.Scratch-Extensions/tree/main/changelog/math.1.md");
+        window.open("https://github.com/Tringlyman/docs.Scratch-Extensions/tree/main/changelog/Math/math.0.md");
     };
 
     menus["t/f"] = {
